@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="../images/favicon-32x32.png" />
+		<link rel="stylesheet" href="index.css" />
+
+		<title>Frontend Mentor | Todo app</title>
+	</head>
+	<body>
+		<main id="wrapper">
+			<header>
+				<div id="title-bar">TODO</div>
+
+				<!-- <button id="theme-icon" class="text-transparent">___</button> -->
+				<button>
+					<img
+						id="theme-icon"
+						src="../images/icon-moon.svg"
+						alt="change-mode-icon" />
+				</button>
+			
+			</header>
+			<div id="sub-wrapper">
+				<section id="todo-input-box">
+					<input
+						type="text"
+						id="input-area"
+						placeholder="Create a new todo" />
+
+					<button>
+						<img
+							id="add-button"
+							src="../images/icon-plus-grey.svg"
+							alt="add-button" />
+					</button>
+				</section>
+
+				<section id="list-box">
+					<div id="todo-list"></div>
+				</section>
+
+				<section id="info-bar">
+					<p id="active-count"></p>
+					<button id="clear-completed-button">Clear Completed</button>
+				</section>
+
+				<section>
+					<div id="filter-bar">
+						<button id="filter-all" class="filter-buttons default">
+							All
+						</button>
+						<button id="filter-active" class="filter-buttons">
+							Active
+						</button>
+						<button id="filter-completed" class="filter-buttons">
+							Completed
+						</button>
+					</div>
+				</section>
+				<!-- <p>Drag and drop to reorder list</p> -->
+			</div>
+
+			<!-- Add dynamic number
+		items left All Active Completed Clear Completed  -->
+
+			<div class="attribution">
+				Challenge by
+				<a
+					href="https://www.frontendmentor.io?ref=challenge"
+					target="_blank"
+					>Frontend Mentor</a
+				>. Coded by <a href="#">Noej Ijkus</a>.
+			</div>
+		</main>
+
+		<script src="index.js"></script>
+	</body>
+</html>

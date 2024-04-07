@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+	/* --bg-color: hsl(236, 33%, 92%); */
+
+	--bg-color:background-color: #52ACFF;
+background-image: linear-gradient(180deg, #52ACFF 10%, #d9f5ff 100%);
+
+
+	
+	--card-bg: hsl(0, 0%, 98%);
+	--text-color: hsl(0, 0%, 26%);
+	--light-color:hsl(0, 0%, 98%);
+	--inactive-color: hsl(236, 9%, 61%);
+	--active-color: #0083fd;
+	--active-color-light:hsla(200, 100%, 50%, 0.1);
+	--hover-color: #0083fd;
+	--border-color: hsl(233, 11%, 84%);
+
+	/* --bg-img-mobile: url('../images/bg-mobile-light.jpg');
+	--bg-img-desktop: url('../images/bg-desktop-light.jpg'); */
+	/* --theme-icon: url('../images/icon-moon.svg'); */
+	--border-radius: 5px;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+	--bg-color: background: #0f0c29;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	
+	--card-bg: hsl(235, 24%, 19%);
+	--text-color: hsl(0, 0%, 73%);
+	--light-color:hsl(0, 0%, 90%);
+	--inactive-color: hsl(234, 11%, 52%);
+	--active-color: hsl(280, 87%, 65%);
+	--active-color-light:hsla(280, 87%, 65%, 0.1);
+	--hover-color: hsl(280, 87%, 65%);
+	--border-color: hsl(233, 14%, 35%);
+
+
+	/* --bg-img-mobile: url('../images/bg-mobile-dark.jpg');
+	--bg-img-desktop: url('../images/bg-desktop-dark.jpg'); */
+	/* --theme-icon: url('../images/icon-sun.svg'); */
+}
+
+body {
+	height: 100vh;
+	min-height: 500px;
+
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	justify-content: center;
+	align-items: center; /* 가로로 중앙정렬 */
+
+	font-size: 1.1rem;
+
+	background-image: var(--bg-img-desktop);
+	background-repeat: no-repeat;
+	background-size: 100vw;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+}
+
+::placeholder {
+	color: var(--bg-color);
+}
+
+textarea:focus,
+input:focus {
+	outline: none;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+button:hover {
+	color: var(--hover-color);
+}
+
+button:focus {
+	outline: none;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+	padding: 1rem;
+}
+.attribution a {
+	color: var(--active-color);
+	text-decoration: none;
+}
+
+.attribution a:hover {
+	opacity: 50%;
+}
+
+/* ////////// area-related /////////////////////////////////////////////////// */
+#wrapper {
+	width: 40vw;
+	min-width: 390px;
+	max-width: 600px;
+
+	height: 80vh;
+	min-height: 300px;
+	/* 
+	* 윈도우를 최소크기로 줄였을 때, min-height 숫자가 작아질수록 TODO 위의 마진이 넓어진다. 
+	* 숫자가 커지면 TODO 위의 마진이 없어져 TODO 글씨가 잘라지기도 한다. ex)min-height: 700px
+	*/
+}
+
+#sub-wrapper {
+	background-color: var(--card-bg);
+	border-radius: var(--border-radius);
+	color: var(--text-color);
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	vertical-align: middle;
+	/* align-items: center; */
+	text-align: center;
+	
+	margin-bottom: 1rem;
+}
+
+#title-bar {
+	color: var(--light-color);
+	font-size: 2.5rem;
+	font-weight: 300;
+	letter-spacing: 10px;
+}
+
+#theme-icon {
+	opacity: 80%;
+	cursor: pointer;
+	height: 1.5rem;
+}
+#theme-icon:hover {
+	opacity: 50%;
+	/* transition: 20; */
+}
+/* ////////// todo-input-related /////////////////////////////////////////////////// */
+#todo-input-box {
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem;
+	background-color: var(--border-color);
+	border-top-left-radius: var(--border-radius);
+	border-top-right-radius: var(--border-radius);
+	border-bottom: var(--border-color) solid 3px;
+}
+#todo-input-box:hover {
+	opacity: 70%;
+}
+
+#input-area {
+	border: none;
+	background-color: transparent;
+	width: 100%;
+
+	font-size: 1.25rem;
+	color: var(--text-color);
+}
+
+#add-button {
+	/* padding: 0 0.2rem; */
+	width: 20px;
+	height: 20px;
+	/* font-size: 1.5rem;
+	font-weight: 300; */
+	/* color: var(--bg-color); */
+}
+
+/* ////////// list-related /////////////////////////////////////////////////// */
+.todo-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 1rem;
+	overflow: hidden; /*카드 밖으로 넘치는 글씨는 가려짐*/
+
+	text-transform:inherit;
+	border-bottom: var(--border-color) solid 1px;
+
+	cursor: grab;
+}
+.todo-item:hover {
+	/* opacity: 70%; */
+	background-color: var(--active-color-light);
+
+}
+
+.todo-item:after {
+	opacity: 30%;
+}
+/* .todo-item:hover:after {
+	opacity:1;
+	transform: translate(0)
+} */
+
+
+.todo-text {
+	width: 30vw;
+	max-width: 380px;
+	min-width: 250px;
+	padding: 0 1rem;
+
+
+	justify-items: left;
+	text-align: left;
+	overflow-wrap: break-word;
+	position: relative;
+	/* padding: 0 1rem; */
+}
+.todo-text:focus{
+	outline:none;
+	color: var(--active-color)
+
+}
+/* .todo-text::first-letter {
+	text-transform: uppercase;
+} */
+
+.edit-button {
+	color: var(--inactive-color);
+	font-weight: 400;
+
+
+	/* display: inline-block;
+	width: 20px;
+	height: 20px;
+
+	background-image: url('../images/icon-edit.png');
+	background-size: cover;
+	cursor: pointer;
+	box-sizing: content-box; */
+}
+
+.remove-button {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+
+	background-image: url('../images/icon-cross-grey.svg');
+	/* background-size: cover; */
+	cursor: pointer;
+	margin-left: 10px;
+	box-sizing: content-box;
+}
+
+/* ////////// checkbox-related /////////////////////////////////////////////////// */
+.checkbox {
+	display: inline-block;
+
+	width: 25px;
+	height: 25px;
+	background-image: url('../images/checkbox-icon-grey.svg');
+	/* background-size: cover;  */
+	cursor: pointer;
+	/* margin-right: 1rem; */
+	box-sizing: content-box;
+}
+.checkbox.checked {
+	background-image: url('../images/checkbox-checked-icon-grey.svg');
+}
+.todo-text.completed-text {
+	text-decoration: line-through;
+	opacity: 40%;
+}
+
+#info-bar {
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.9rem;
+	color: var(--inactive-color);
+
+	padding: 1rem;
+}
+#clear-completed-button {
+	font-size: 0.9rem;
+	color: var(--inactive-color);
+}
+/* ////////// filter-related /////////////////////////////////////////////////// */
+#filter-bar {
+	/* background-color: var(--border-color); */
+
+	border-top: var(--border-color) solid 3px;
+	text-align: center;
+	padding: 2rem 2rem 1rem 2rem;
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+	
+}
+
+.filter-buttons {
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	font-weight: 600;
+
+	color: var(--inactive-color);
+	padding: 0 0.5rem;
+}
+.filter-buttons:hover {
+	color: var(--hover-color);
+}
+.filter-buttons.active {
+	color: var(--active-color);
+}
+
+/* ////////// drag&drop-related /////////////////////////////////////////////////// */
+/* .draggable {
+	cursor:grab;
+
+} */
+
+
+
+
+
+/* ////////// Media queries and other styles /////////////////////////////////////////////////// */
+@media screen and (max-width: 768px) {
+	/* for mobile phones    */
+	body {
+		background-image: var(--bg-img-mobile);
+	}
+}
