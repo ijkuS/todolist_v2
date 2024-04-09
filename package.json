@@ -1,5 +1,5 @@
 {  
-  "homepage": "https://ijkus.github.io/todolist_deploy_practice/src/index.html", 
+  "homepage": "https://ijkus.github.io/todolist_v2/src/index.html", 
 
   "dependencies": {
     "gh-pages": "^6.1.1"
